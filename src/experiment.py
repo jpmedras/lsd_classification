@@ -8,7 +8,6 @@ from skorch import NeuralNetClassifier
 from pytorch_optimizer import Lookahead
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import StratifiedKFold
-from pandas import DataFrame
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, roc_auc_score
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.ensemble import RandomForestClassifier
@@ -22,6 +21,9 @@ np.random.seed(0)
 # Check device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print("Device:", device)
+
+# Call fuction from data.py
+X_train_test, y_train_test, X_val, y_val = None, None, None, None
 
 # Stratified cross-validator
 skf = StratifiedKFold(n_splits=2, shuffle=True, random_state=42)
